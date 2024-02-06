@@ -9,6 +9,7 @@ import {
 } from '@expo-google-fonts/inter'
 import { useFonts } from 'expo-font'
 import { Loading } from '@/components/loading'
+
 const Layout: FC = () => {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -17,7 +18,7 @@ const Layout: FC = () => {
     Inter_700Bold,
   })
 
-  if (fontsLoaded) {
+  if (!fontsLoaded) {
     return <Loading />
   }
   return (
