@@ -1,16 +1,12 @@
 import React, { FC } from 'react'
 import { Pressable, PressableProps, Text } from 'react-native'
 import { clsx } from 'clsx'
-type CategoryButtonProps = PressableProps & {
+type CategoryProps = PressableProps & {
   title: string
   isSelected?: boolean
 }
 
-export const CategoryButton: FC<CategoryButtonProps> = ({
-  isSelected,
-  title,
-  ...rest
-}) => {
+export const Category: FC<CategoryProps> = ({ isSelected, title, ...rest }) => {
   return (
     <Pressable
       className={clsx(
