@@ -1,15 +1,23 @@
 import { Header } from '@/components/header'
-import React, { FC, useRef, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import { FlatList, SectionList, Text, View } from 'react-native'
-import { CATEGORIES, MENU } from '@/utils/data/products'
-import { CategoryButton } from '@/components/category-button'
+import { CATEGORIES, MENU, ProductProps } from '@/utils/data/products'
+import { Category } from '@/components/category'
 import { ProductCard } from '@/components/product-card'
 import { Link } from 'expo-router'
+import { useCartStore } from '@/stores/cart-store'
 
 const Home: FC = () => {
   const [category, setCategory] = useState(CATEGORIES[0])
 
-  const sectionRef = useRef<SectionList>(null)
+  const sectionRef = useRef<SectionList<ProductProps>>(null)
+
+  const cartStore = useCartStore()
+
+  const cartQuantity = cartStore.products.reduce(
+    (total, product) => total + product.quantity,
+    0,
+  )
 
   const handleSelectCategatory = (categorySelected: string) => {
     setCategory(categorySelected)
@@ -28,14 +36,14 @@ const Home: FC = () => {
   }
   return (
     <View className="flex-1 pt-8">
-      <Header title="Faça o seu pedido" />
+      <Header title="Faça o seu pedido" cartQuantity={cartQuantity} />
 
       <FlatList
         keyExtractor={(i) => i}
         horizontal
         data={CATEGORIES}
         renderItem={({ item }) => (
-          <CategoryButton
+          <Category
             title={item}
             isSelected={item === category}
             onPress={() => handleSelectCategatory(item)}

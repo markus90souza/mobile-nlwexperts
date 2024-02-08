@@ -1,16 +1,32 @@
-import { Button } from '@/components/button'
-import { LinkButton } from '@/components/link-button'
+import { Button, LinkButton } from '@/components'
+
+import { useCartStore } from '@/stores/cart-store'
 import { PRODUCTS } from '@/utils/data/products'
 import { formatCurrency } from '@/utils/format-currency'
 import { Feather } from '@expo/vector-icons'
-import { useLocalSearchParams } from 'expo-router'
+import { Redirect, useLocalSearchParams, useNavigation } from 'expo-router'
 import { FC } from 'react'
 import { Image, View, Text } from 'react-native'
 
 const ProductDetails: FC = () => {
   const { id } = useLocalSearchParams()
 
-  const product = PRODUCTS.filter((p) => p.id === id)[0]
+  const cartStore = useCartStore()
+  const navigation = useNavigation()
+
+  const product = PRODUCTS.find((p) => p.id === id)
+
+  if (!product) {
+    return <Redirect href={'/'} />
+  }
+
+  const handleAddToCart = () => {
+    if (product) {
+      cartStore.add(product)
+      navigation.goBack()
+    }
+  }
+
   return (
     <View className="flex-1">
       <View className="">
@@ -23,7 +39,8 @@ const ProductDetails: FC = () => {
       </View>
 
       <View className="flex-1 mb-8 p-5">
-        <Text className="text-lime-300 text-2xl font-heading">
+        <Text className="text-white font-heading text-xl">{product.title}</Text>
+        <Text className="text-lime-300 my-2 text-2xl font-heading">
           {formatCurrency(product.price)}
         </Text>
 
@@ -42,7 +59,7 @@ const ProductDetails: FC = () => {
         ))}
 
         <View className="pb-8 pt-5 gap-3">
-          <Button>
+          <Button onPress={handleAddToCart}>
             <Button.Icon>
               <Feather name="plus-circle" size={20} />
             </Button.Icon>
@@ -51,7 +68,7 @@ const ProductDetails: FC = () => {
           </Button>
         </View>
 
-        <LinkButton href="/" title="Voltar ao cardapio" />
+        <LinkButton href="/cart" title="Voltar ao cardapio" />
       </View>
     </View>
   )
