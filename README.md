@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE">
-  <img alt="GitHub" src="https://img.shields.io/github/license/EliasGcf/book-wise?color=%239694F5"></a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/markus90souza/mobile-nlwexperts?color=%239694F5"></a>
 </p>
 
 <p align="center">
@@ -20,13 +20,13 @@
 
 ## Layout
 
-You can view the project layout through the link below:
+Você pode visualizar o layout do projeto através do link abaixo::
 
 <!-- TODO: Fix link -->
 
 - [Nlw Experts - Figma](https://www.figma.com/community/file/1336456468568916765/nlw-expert-orders)
 
-Remembering that you need to have a [Figma](http://figma.com) account to access it.
+Lembrando que você precisa ter uma [Figma](http://figma.com) conta para acessá-lo.
 
 ## Tecnologias
 
@@ -37,11 +37,11 @@ Remembering that you need to have a [Figma](http://figma.com) account to access 
 
 ## Start
 
-### Requirements
+### Requisitos
 
 - [Node.js](https://nodejs.org/en/)
 - [Npm](https://www.npmjs.com/)
-- [Android Studio](https://nodejs.org/en/)
+- [Expo GO](https://expo.dev/client)
 
 **Clone the project and access the folder**
 
@@ -49,7 +49,7 @@ Remembering that you need to have a [Figma](http://figma.com) account to access 
 git clone https://github.com/markus90souza/mobile-nlwexperts.git && cd mobile-nlwexperts
 ```
 
-**Follow the steps below**
+**Siga os passos abaixo**
 
 ```bash
 # Instale as dependencias do projeto
@@ -61,10 +61,11 @@ $ npx expo dev --clear
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este projeto está licenciado sob a licença MIT - veja o [LICENSE](LICENSE) arquivo para obter detalhes.
 
 ---
 
 <p align="center">
-  Made with 💜 by <a href="https://www.linkedin.com/in/eliasgcf/">Marcos de Souza</a>
+ 
+Feito com 💜 por <a href="https://www.linkedin.com/in/markus90souza/">Marcos de Souza</a>
 </p>
