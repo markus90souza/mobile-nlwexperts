@@ -1,9 +1,8 @@
-import { Header } from '@/components/header'
+import { Header, Category, ProductCard } from '@/components'
 import { FC, useRef, useState } from 'react'
 import { FlatList, SectionList, Text, View } from 'react-native'
 import { CATEGORIES, MENU, ProductProps } from '@/utils/data/products'
-import { Category } from '@/components/category'
-import { ProductCard } from '@/components/product-card'
+
 import { Link } from 'expo-router'
 import { useCartStore } from '@/stores/cart-store'
 
@@ -61,7 +60,7 @@ const Home: FC = () => {
         keyExtractor={(i) => i.id}
         stickySectionHeadersEnabled={false}
         renderItem={({ item }) => (
-          <Link href={`/product/${item.id}` as any} asChild>
+          <Link href={`/product/${item.id}`} asChild>
             <ProductCard data={item} />
           </Link>
         )}

@@ -1,5 +1,5 @@
-import { Button, LinkButton } from '@/components'
-
+import { LinkButton } from '@/components'
+import { Button } from '@/components/button'
 import { useCartStore } from '@/stores/cart-store'
 import { PRODUCTS } from '@/utils/data/products'
 import { formatCurrency } from '@/utils/format-currency'
@@ -14,7 +14,7 @@ const ProductDetails: FC = () => {
   const cartStore = useCartStore()
   const navigation = useNavigation()
 
-  const product = PRODUCTS.find((p) => p.id === id)
+  const product = PRODUCTS.find((product) => product.id === id)
 
   if (!product) {
     return <Redirect href={'/'} />
@@ -68,7 +68,7 @@ const ProductDetails: FC = () => {
           </Button>
         </View>
 
-        <LinkButton href="/cart" title="Voltar ao cardapio" />
+        <LinkButton href="/" title="Voltar ao cardapio" />
       </View>
     </View>
   )

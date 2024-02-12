@@ -4,5 +4,6 @@ import { Header } from './header'
 import { Loading } from './loading'
 import { Category } from './category'
 import { ProductCard } from './product-card'
+import { Input } from './input'
 
-export { Button, Header, LinkButton, Loading, Category, ProductCard }
+export { Input, Button, Header, LinkButton, Loading, Category, ProductCard }

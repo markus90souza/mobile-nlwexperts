@@ -1,4 +1,4 @@
-import React, { ReactNode, FC } from 'react'
+import { ReactNode, FC } from 'react'
 import {
   Text,
   TextProps,
@@ -45,4 +45,4 @@ const ButtonIcon: FC<ButtonIconProps> = ({ children }) => {
 Button.Title = ButtonTitle
 Button.Icon = ButtonIcon
 
-export { Button }
+export { Button, ButtonIcon, ButtonTitle }
